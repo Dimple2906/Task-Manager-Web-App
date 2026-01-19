@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <script src="dashboard.js" defer></script>
+    <link href="dashboard.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+</head>
+<body>
+<header class="app-header">
+  <h2 class="app-title">
+    <i class="fa-solid fa-list-check"></i> Task Manager
+  </h2>
+
+  <div class="header-actions">
+    <button class="theme-toggle" onclick="toggleTheme()" title="Toggle theme">
+      <i id="themeIcon" class="fa-solid fa-moon"></i>
+    </button>
+
+    <button class="logout-btn" onclick="logout()">
+      <i class="fa-solid fa-right-from-bracket"></i> Logout
+    </button>
+  </div>
+</header>
+
+
+
+
+<div class="tab">
+ <div id="user-info" class="card">
+    <h4 id="name" class="user-name"></h4>
+    <p id="email" class="user-email"></p>
+    <hr class="divider">
+</div>
+    <button id="default" class="tablinks" onclick="opentab(event,'dashboard')">
+  <i class="fa-solid fa-chart-line"></i> Dashboard
+</button>
+
+<button class="tablinks" onclick="opentab(event,'create')">
+  <i class="fa-solid fa-plus"></i> Create Task
+</button>
+
+<button class="tablinks" onclick="opentab(event,'view')">
+  <i class="fa-solid fa-eye"></i> View Tasks
+</button>
+
+<button class="tablinks" onclick="opentab(event,'manage')">
+  <i class="fa-solid fa-pen-to-square"></i> Manage Tasks
+</button>
+
+  <button id="out" onclick="logout()" style="background-color: red;">Log out</button>
+</div>
+
+
+    
+    <div id="dashboard" class="tabcontent">
+
+      
+          <h2 id="user"></h2><br>
+      
+        <div class="stats-card">
+          <h2>Your Tasks</h2>
+          <p id="Totaltasks">0</p>
+        </div>
+        <div class="stats-card">
+          <h2>In-progress</h2>
+          <p id="progress">0</p>
+        </div>
+        <div class="stats-card">
+          <h2>Completed</h2>
+          <p id="complete">0</p>
+          
+        </div>
+      </div>
+    </div>
+    
+    
+    <div id="create" class="tabcontent">
+  <div class="form-card">
+    <h2 class="form-title">Create New Task</h2>
+
+    <div class="form-group">
+      <label for="title">Task Title</label>
+      <input
+        type="text"
+        id="title"
+        placeholder="Enter task title"
+        required
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="desc">Task Description</label>
+      <textarea
+        id="desc"
+        placeholder="Describe the task details"
+        rows="4"
+        required
+      ></textarea>
+    </div>
+
+    <div class="form-actions">
+      <button type="button" onclick="create()">Create Task</button>
+    </div>
+  </div>
+</div>
+
+    
+    </div>
+    <div id="view" class="tabcontent">
+      <div class="view-header">
+        <h2>Your Tasks</h2>
+        <div class="task-action">
+    <button  class="btn-secondary" onclick="loadUserTasks()">Refresh</button>
+    <button class="btn-danger" onclick="Cleartask()">Clear All</button>
+    </div>
+    </div>
+    <div class="filter-search">
+      <input type="text" id="search" placeholder="Search by title" onkeyup="searchandfilter()">
+      <select id="statusfilter" onchange="searchandfilter()">
+        <option value="all">All</option>
+        <option value="pending">Pending</option>
+        <option value="complete">Completed</option>
+      </select>
+    </div>
+    <div id="viewTasklist" class="task-container"></div>
+    </div>
+    <div id="manage" class="tabcontent">
+      <div class="view-header">
+        <h2>Manage Tasks</h2>
+        <button  class="btn-secondary" onclick="loadUserTasks()">Refresh</button>
+      </div>
+      <div id="manageTasklist" class="task-container"></div>
+    </div>
+  <footer class="app-footer">
+  <p>© 2026 Task Manager App. All rights reserved.</p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login | Auth CRUD App</title>
+
+  <link rel="stylesheet" href="dashboard.css">
+  <script src="login.js" defer></script>
+</head>
+<body class="login-body">
+
+  <!-- HEADER -->
+  <header class="app-header">
+    <h2 class="app-title">Task Manager</h2>
+  </header>
+
+  <!-- LOGIN CARD -->
+  <div class="login-wrapper">
+    <div class="login-card">
+      <h2>Login</h2>
+
+      <form onsubmit="login(event)">
+        <label>Email</label>
+        <input id="email" type="email" placeholder="Enter email" required>
+
+        <label>Password</label>
+        <input id="pass" type="password" placeholder="Enter password" required>
+
+        <button type="submit">Login</button>
+      </form>
+    </div>
+  </div>
+<footer class="app-footer">
+  <p>© 2026 Task Manager App. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
